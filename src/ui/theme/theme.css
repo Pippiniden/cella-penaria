@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+/*
+ * 色の変数。ダークモードは端末の設定に追従する。
+ * 画面では bg-bg / bg-surface / text-ink / text-muted / border-line / text-accent などのクラスで使う。
+ */
+:root {
+  --bg: #f7f4ee;
+  --surface: #ffffff;
+  --surface-2: #efebe3;
+  --ink: #1f1d1a;
+  --muted: #6b665e;
+  --line: #e3ddd2;
+  --accent: #b05a3a;
+  --on-accent: #ffffff;
+  --danger: #b3261e;
+  --danger-bg: #fbe9e7;
+  --warn: #8a5a00;
+  --warn-bg: #fdf1d8;
+  --ok: #2e7d4f;
+  --ok-bg: #e5f3ea;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1b19;
+    --surface: #262421;
+    --surface-2: #302d29;
+    --ink: #f1ede6;
+    --muted: #a39d93;
+    --line: #3a3631;
+    --accent: #e08a65;
+    --on-accent: #1c1b19;
+    --danger: #f2b8b5;
+    --danger-bg: #3d1f1d;
+    --warn: #f0c46b;
+    --warn-bg: #3a2f17;
+    --ok: #8fd3a8;
+    --ok-bg: #1d3326;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
+  --color-ok: var(--ok);
+  --color-ok-bg: var(--ok-bg);
+  --font-sans: system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* ノッチやホームバーを避ける余白。docs/spec.md > PWA仕様 > 画面の安全領域 */
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}

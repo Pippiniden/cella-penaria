@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dev-dist/
+coverage/
+*.local
+.DS_Store
+# 成分表の元データ（Excel）はコミットしない。変換結果の public/foods.json だけをコミットする
+tools/build-foods/input/
